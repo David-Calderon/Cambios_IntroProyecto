@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat Alternates", sans-serif;
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 15000px;
+  background-color: black;
+  overflow: hidden;
+}
+.container {
+  min-height: 100vh;
+  min-width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.glowing {
+  position: relative;
+  min-width: 750px;
+  height: 750px;
+  margin: -150px;
+  transform-origin: right;
+  animation: colorChange 5s linear infinite;
+  z-index: 0;
+  transform-style: preserve-3d;
+}
+.glowing:nth-child(even) {
+  transform-origin: left;
+}
+@keyframes colorChange {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes resize {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+.glowing span {
+  position: absolute;
+  top: calc(80px * var(--i));
+  left: calc(80px * var(--i));
+  bottom: calc(80px * var(--i));
+  right: calc(80px * var(--i));
+}
+.glowing span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 1px;
+  height: 1px;
+  background: #f00;
+  border-radius: 50%;
+}
+.glowing span:nth-child(3n + 1):before {
+  background: rgba(134, 255, 0, 1);
+  box-shadow: 0 0 20px rgba(134, 255, 0, 1), 0 0 40px rgba(134, 255, 0, 1),
+    0 0 60px rgba(134, 255, 0, 1), 0 0 80px rgba(134, 255, 0, 1),
+    0 0 0 8px rgba(134, 255, 0, 1);
+}
+.glowing span:nth-child(3n + 2):before {
+  background: rgb(255, 255, 255, 1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 1),
+    0 0 60px rgba(255, 255, 255, 1), 0 0 80px rgba(255, 255, 255, 1),
+    0 0 0 8px rgba(255, 255, 255, 1);
+}
+.glowing span:nth-child(3n + 3):before {
+  background: rgb(1, 23, 32, 1);
+  box-shadow: 0 0 20px rgba(1, 23, 32, 1), 0 0 40px rgba(1, 23, 32, 1),
+    0 0 60px rgba(1, 23, 32, 1), 0 0 80px rgba(1, 23, 32, 1),
+    0 0 0 8px rgba(1, 23, 32, 1);
+}
+.glowing span:nth-child(3n + 1) {
+  animation: animate 10s alternate infinite;
+}
+.glowing span:nth-child(3n + 2) {
+  animation: animate-reverse 3s alternate infinite;
+}
+.glowing span:nth-child(3n + 3) {
+  animation: animate-reverse 8s alternate infinite;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.card {
+  opacity: 80%;
+  position: relative;
+  right: 900px;
+  transform-style: preserve-3d;
+  min-height: 50vh;
+  min-width: 50rem;
+  max-width: 20rem;
+  border-radius: 30px;
+  padding: 0rem 5rem;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to top, rgb(0, 0, 0), rgb(0, 0, 0));
+}
+
+
+.sneaker {
+  min-height: 35vh;
+  min-width: 20px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  width: 170px;
+  height: 170px;
+  position: relative;
+  left: 110px !important;
+}
+
+#logo {
+  animation: resize 6s infinite;
+}
+
+.sneaker img {
+  max-width: 40rem;
+  min-width: 10px;
+  position: fixed;
+  display: flex;
+  z-index: 1;
+  transition: all 0.75s ease-out;
+}
+/* .circle {
+  width: 13rem;
+  height: 13rem;
+  background: linear-gradient(
+    to right,
+    rgba(12, 243, 4, 0.75),
+    rgba(1, 26, 46, 0.75)
+  );
+  position: absolute;
+  position: relative;
+  left: 150px;
+  border-radius: 50%;
+  z-index: 2;
+} */
+
+.info h1 {
+  font-size: 3rem;
+  transition: all 0.75s ease-out;
+  color: white;
+  text-align: center;
+}
+.info h3 {
+  font-size: 2.3rem;
+  padding: o, 5rem 0rem;
+  color: #fff;
+  font-weight: lighter;
+  transition: all 0.75s ease-out;
+  text-align: center;
+}
+.info h4 {
+  font-size: 1.3rem;
+  padding: 2rem 0rem;
+  color: #fff;
+  font-weight: lighter;
+  transition: all 0.75s ease-out;
+  text-align: center;
+}
